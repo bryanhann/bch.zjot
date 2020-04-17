@@ -1,18 +1,14 @@
 source $(dirname $(grealpath $0))/lib/marco.sh
 
+[ -z "$R20_ZJOT_CONFIG_ACC" ] && {
+    echo "R20_ZJOT: Fatal error"
+    echo "    issue: [\$R20_ZJOT_CONFIG_ACC] is not set"
+    echo "    file: $0"
+}
+
 function r20_zjot() {
-    source $XDG_CONFIG_HOME/r20/zjot/activate.sh
-    [ -z "$R20ZJOT_acc" ] && {
-        echo "zjot(): Fatal error: \$R20ZJOT_acc is not set"
-        return
-    }
-    ACC=$R20ZJOT_acc
-
-    #mkdir -p ${XDG_X_ACC}/zjot
-
-    #ACC=${XDG_X_ACC}/zjot/zjot.txt
+    ACC=$R20_ZJOT_CONFIG_ACC
     touch $ACC
-
 	case .$1 in
 		.cat)
 			cat $ACC
