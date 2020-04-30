@@ -1,12 +1,12 @@
 source $(dirname $(grealpath $0))/lib/marco.sh
-[ -z "$R20_zjot_CFG_acc" ] && {
-    echo "R20_ZJOT: Fatal error"
-    echo "    issue: [\$R20_ZJOT_CONFIG_ACC] is not set"
+[ -z "$ZJOT_ACC" ] && {
+    echo "ZJOT: Fatal error"
+    echo "    issue: [\$ZJOT_ACC] is not set"
     echo "    file: $0"
 }
 
-function r20_zjot() {
-    ACC=$R20_zjot_CFG_acc
+function zjot() {
+    ACC=${ZJOT_ACC}
     touch $ACC
 	case .$1 in
 		.cat)
